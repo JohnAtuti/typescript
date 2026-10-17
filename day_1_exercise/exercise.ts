@@ -38,9 +38,10 @@ function addAll(numbers: number[]): number {
 // Write a function splitName(full: string): [string, string] that returns [firstName, lastName].
 
 function splitName(full: string): [string, string] {
-  let firstAndLast: [string, string] = ["John", "Mark"];
-
-  return firstAndLast;
+  const parts = full.trim().split(" ");
+  const first = parts[0];
+  const last = parts.slice(1).join(" ");
+  return [first, last];
 }
 
 function describe(value: unknown): string {
