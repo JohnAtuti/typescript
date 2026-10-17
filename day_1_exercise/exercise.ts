@@ -45,10 +45,10 @@ function splitName(full: string): [string, string] {
 }
 
 function describe(value: unknown): string {
-  if (value === string) {
+  if (typeof value === "string") {
     return "a string";
   }
-  if (value === number) {
+  if (typeof value === "number") {
     return "a number";
   } else {
     return "something else";
