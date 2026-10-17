@@ -30,7 +30,7 @@ let usernames = "Administrator"; // TS infer
 function addAll(numbers: number[]): number {
   let sum = 0;
   numbers.forEach((num) => {
-    sum + num;
+    sum += num;
   });
   return sum;
 }
