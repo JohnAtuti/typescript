@@ -1,3 +1,5 @@
+import ZodNumberFormat = require("zod");
+
 function multiply(a: number, b: number): number {
   return a * b;
 }
@@ -19,3 +21,22 @@ let choice: string = "yes"; //type annotation
 let age: number = 32; //type annotation
 let device = "laptop"; // TS infer
 let usernames = "Administrator"; // TS infer
+
+// ARRAYS AND TUPLES
+// Write a function sum(nums: number[]): number that adds all numbers.
+
+function addAll(numbers: number[]): number {
+  let sum = 0;
+  numbers.forEach((num) => {
+    sum + num;
+  });
+  return sum;
+}
+
+// Write a function splitName(full: string): [string, string] that returns [firstName, lastName].
+
+function splitName(full: string): [string, string] {
+  let firstAndLast: [string, string] = ["John", "Mark"];
+
+  return firstAndLast;
+}
