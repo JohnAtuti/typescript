@@ -56,13 +56,5 @@ function describe(value: unknown): string {
 }
 
 function assertNever(value: never): never {
-  let score = 0;
-  switch (score) {
-    case 1:
-      console.log("One");
-    case 2:
-      console.log("two");
-    default:
-      throw "Unknown score";
-  }
+  throw new Error("unexpected value");
 }
