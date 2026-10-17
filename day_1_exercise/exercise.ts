@@ -1,3 +1,5 @@
+import number = require("zod");
+import string = require("zod");
 import ZodNumberFormat = require("zod");
 
 function multiply(a: number, b: number): number {
@@ -39,4 +41,27 @@ function splitName(full: string): [string, string] {
   let firstAndLast: [string, string] = ["John", "Mark"];
 
   return firstAndLast;
+}
+
+function describe(value: unknown): string {
+  if (value === string) {
+    return "a string";
+  }
+  if (value === number) {
+    return "a number";
+  } else {
+    return "something else";
+  }
+}
+
+function assertNever(value: never): never {
+  let score = 0;
+  switch (score) {
+    case 1:
+      console.log("One");
+    case 2:
+      console.log("two");
+    default:
+      throw "Unknown score";
+  }
 }
