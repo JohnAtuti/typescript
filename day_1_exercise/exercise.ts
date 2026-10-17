@@ -14,4 +14,8 @@ function double(n: number) {
   return n * 2;
 }
 //double("5"); // giving a string parameter to where a number is expected
-double(3);
+// double(3);
+let choice: string = "yes"; //type annotation
+let age: number = 32; //type annotation
+let device = "laptop"; // TS infer
+let usernames = "Administrator"; // TS infer
