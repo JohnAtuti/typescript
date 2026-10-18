@@ -42,12 +42,12 @@ const administrator1: Admin = {
 
 // Exercise 3 — Literal union with type
 
-type Orderstatus = "pending" | "shipped" | "delivered" | "cancelled"; // this is a type alias.  A literal union
+type OrderStatus = "pending" | "shipped" | "delivered" | "cancelled"; // this is a type alias.  A literal union
 
 // then
 interface Order {
   readonly id: string;
-  status: Orderstatus;
+  status: OrderStatus;
   total: number;
 }
 
@@ -90,7 +90,7 @@ runTask(
   (msg, level) => console.log(`[${level}] ${msg}`),
 );
 
-// Exercise 5 — Index signature
+// index-signature-danger
 interface Env {
   [keys: string]: string;
 }
@@ -101,10 +101,10 @@ const urls: Env = {
   supabase_publishable_key: "https://supabasepublishables65848.supabase",
 };
 
-// console.log(urls);
-// console.log("\nsupabase Public url: ", urls.supabase_public_url);
-// console.log("\nsupabase anon key: ", urls.supabase_anon_key);
-// console.log("\nsupabase publishable key: ", urls.supabase_publishable_key);
+console.log(urls);
+console.log("\nsupabase Public url: ", urls.supabase_public_url);
+console.log("\nsupabase anon key: ", urls.supabase_anon_key);
+console.log("\nsupabase publishable key: ", urls.supabase_publishable_key);
 
 // Exercise 6 — interface vs type decision
 
@@ -134,17 +134,17 @@ const urls: Env = {
 // Call it with both kinds of response. Paste the output of node exercises.js — I want to see both branches firing.
 
 interface ApiSuccess<T> {
-  status: "OK";
+  status: "ok";
   data: T;
 }
 
 interface ApiError {
-  status: "Error";
+  status: "error";
   code: number;
   message: string;
 }
 
-type APIResponse<T> = ApiSuccess<T> | ApiError;
+type ApiResponse<T> = ApiSuccess<T> | ApiError;
 
 interface Product {
   readonly id: number;
@@ -152,21 +152,21 @@ interface Product {
   price: number;
 }
 
-function formatResponse(res: APIResponse<Product>): string {
-  if (res.status === "OK") {
+function formatResponse(res: ApiResponse<Product>): string {
+  if (res.status === "ok") {
     return `product: ${res.data.name} - ${res.data.price}`;
   }
 
   return `Error: ${res.code} ${res.message}`;
 }
 
-const ok: APIResponse<Product> = {
-  status: "OK",
+const ok: ApiResponse<Product> = {
+  status: "ok",
   data: { id: 1, name: "laptop", price: 1299 },
 };
 
-const err: APIResponse<Product> = {
-  status: "Error",
+const err: ApiResponse<Product> = {
+  status: "error",
   code: 404,
   message: "product not found",
 };
