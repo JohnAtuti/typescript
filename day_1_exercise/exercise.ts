@@ -1,7 +1,3 @@
-import number = require("zod");
-import string = require("zod");
-import ZodNumberFormat = require("zod");
-
 function multiply(a: number, b: number): number {
   return a * b;
 }
