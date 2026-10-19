@@ -154,10 +154,10 @@ interface Product {
 
 function formatResponse(res: ApiResponse<Product>): string {
   if (res.status === "ok") {
-    return `product: ${res.data.name} - ${res.data.price}`;
+    return `Product: ${res.data.name}  $${res.data.price}`;
   }
 
-  return `Error: ${res.code} ${res.message}`;
+  return `Error ${res.code} : ${res.message}`;
 }
 
 const ok: ApiResponse<Product> = {
